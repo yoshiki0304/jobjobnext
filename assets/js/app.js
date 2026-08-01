@@ -15,9 +15,9 @@
   setHref('[data-line-link]', c.brand.lineUrl);
 
   setText('#heroEyebrow', c.hero.eyebrow);
-  $('#heroTitle').innerHTML = esc(c.hero.title).replaceAll('\n','<br>');
-  $('#heroLead').innerHTML = esc(c.hero.lead).replaceAll('\n','<br>');
-  $('#heroTags').innerHTML = c.hero.tags.map(t=>`<li>${esc(t)}</li>`).join('');
+  const heroTitle = $('#heroTitle'); if (heroTitle) heroTitle.innerHTML = esc(c.hero.title).replaceAll('\n','<br>');
+  const heroLead = $('#heroLead'); if (heroLead) heroLead.innerHTML = esc(c.hero.lead).replaceAll('\n','<br>');
+  const heroTags = $('#heroTags'); if (heroTags) heroTags.innerHTML = c.hero.tags.map(t=>`<li>${esc(t)}</li>`).join('');
   setText('#campaignTop', c.hero.campaignTop);
   setText('#campaignMain', c.hero.campaignMain);
   setText('#campaignBottom', c.hero.campaignBottom);
@@ -61,6 +61,16 @@
   $('#jobNext').addEventListener('click',()=>track.scrollBy({left:track.clientWidth*.88,behavior:'smooth'}));
 
   // mobile menu
+  const header = $('.header');
+  const fixedCta = $('.fixed-cta');
+  const syncTopState = () => {
+    const passed = window.scrollY > 110;
+    if (header) header.classList.toggle('is-scrolled', passed);
+    document.body.classList.toggle('hero-passed', window.scrollY > Math.min(700, window.innerHeight * 0.72));
+  };
+  syncTopState();
+  window.addEventListener('scroll', syncTopState, {passive:true});
+
   const menuBtn=$('#menuBtn'), menu=$('#mobileMenu');
   menuBtn.addEventListener('click',()=>{ const open=menu.classList.toggle('is-open'); menuBtn.setAttribute('aria-expanded',open); });
   $$('a',menu).forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('is-open');menuBtn.setAttribute('aria-expanded','false')}));
