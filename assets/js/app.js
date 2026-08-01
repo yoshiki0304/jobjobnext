@@ -34,13 +34,21 @@
       </div>
     </article>`).join('');
 
-  $('#jobTrack').innerHTML = c.jobs.map(x=>`
-    <article class="job-card">
-      <img src="${esc(x.image)}" alt="${esc(x.title)}">
+  $('#jobTrack').innerHTML = c.jobs.map((x,i)=>`
+    <article class="job-card job-card--showcase" data-job-index="${i}">
+      <div class="job-card__hero">
+        <div class="job-card__hero-copy">
+          <p class="job-card__eyebrow">おすすめ求人 ${String(i+1).padStart(2,'0')}</p>
+          <h3>${esc(x.title)}</h3>
+          <p class="job-card__salary">${esc(x.salary)}</p>
+        </div>
+        <div class="job-card__hero-image"><img src="${esc(x.image)}" alt="${esc(x.title)}"></div>
+      </div>
       <div class="job-card__body">
-        <p class="job-card__label">おすすめ求人例</p><h3>${esc(x.title)}</h3>
-        <ul>${x.features.map(f=>`<li>✓ ${esc(f)}</li>`).join('')}</ul>
-        <dl><div><dt>月収例</dt><dd>${esc(x.salary)}</dd></div><div><dt>勤務地</dt><dd>${esc(x.place)}</dd></div><div><dt>勤務</dt><dd>${esc(x.shift)}</dd></div></dl>
+        <div class="job-card__summary">寮付き・未経験歓迎・すぐ相談OK</div>
+        <ul class="job-card__features">${x.features.map(f=>`<li>✓ ${esc(f)}</li>`).join('')}</ul>
+        <dl class="job-card__detail-list"><div><dt>勤務地</dt><dd>${esc(x.place)}</dd></div><div><dt>勤務</dt><dd>${esc(x.shift)}</dd></div><div><dt>職種</dt><dd>${esc(x.title)}</dd></div></dl>
+        <a class="job-card__cta" data-line-link href="#">今すぐLINEで無料相談</a>
       </div>
     </article>`).join('');
 
@@ -57,8 +65,31 @@
 
   // slider
   const track = $('#jobTrack');
-  $('#jobPrev').addEventListener('click',()=>track.scrollBy({left:-track.clientWidth*.88,behavior:'smooth'}));
-  $('#jobNext').addEventListener('click',()=>track.scrollBy({left:track.clientWidth*.88,behavior:'smooth'}));
+  const dotsWrap = $('#jobDots');
+  const jobCards = $$('.job-card', track);
+  if (dotsWrap) {
+    dotsWrap.innerHTML = jobCards.map((_,i)=>`<button class="slider-dot${i===0?' is-active':''}" type="button" aria-label="${i+1}枚目の求人へ"></button>`).join('');
+  }
+  const dots = $$('.slider-dot', dotsWrap || document);
+  const getStep = () => {
+    const first = $('.job-card', track);
+    if (!first) return track.clientWidth * .88;
+    const styles = getComputedStyle(track);
+    const gap = parseFloat(styles.columnGap || styles.gap || 0) || 0;
+    return first.getBoundingClientRect().width + gap;
+  };
+  const updateDots = () => {
+    if (!dots.length) return;
+    const step = getStep() || 1;
+    const idx = Math.round(track.scrollLeft / step);
+    dots.forEach((dot,i)=>dot.classList.toggle('is-active', i===Math.max(0, Math.min(dots.length-1, idx))));
+  };
+  $('#jobPrev').addEventListener('click',()=>track.scrollBy({left:-getStep(),behavior:'smooth'}));
+  $('#jobNext').addEventListener('click',()=>track.scrollBy({left:getStep(),behavior:'smooth'}));
+  dots.forEach((dot,i)=>dot.addEventListener('click',()=>track.scrollTo({left:getStep()*i,behavior:'smooth'})));
+  track.addEventListener('scroll', updateDots, {passive:true});
+  window.addEventListener('resize', updateDots);
+  updateDots();
 
   // mobile menu
   const header = $('.header');
