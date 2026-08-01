@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 980" role="img" aria-label="工場で働くスタッフのイラスト">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#dff8ff"/><stop offset=".55" stop-color="#59d6f2"/><stop offset="1" stop-color="#0c70dc"/></linearGradient>
+ <linearGradient id="uni" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7fbff"/><stop offset="1" stop-color="#b9d8f7"/></linearGradient>
+ <filter id="shadow"><feDropShadow dx="0" dy="12" stdDeviation="16" flood-opacity=".25"/></filter>
+</defs>
+<rect width="760" height="980" rx="44" fill="url(#bg)"/>
+<g opacity=".22" fill="#fff"><circle cx="90" cy="120" r="68"/><circle cx="675" cy="180" r="105"/><path d="M0 730L760 420v180L0 910z"/></g>
+<g opacity=".25" stroke="#fff" stroke-width="9"><path d="M38 180h250M470 105h245M24 632h245M520 725h220"/></g>
+<g filter="url(#shadow)">
+ <ellipse cx="510" cy="872" rx="190" ry="45" fill="#0758b8" opacity=".25"/>
+ <path d="M430 440c-105 36-154 111-165 243l-21 262h409l-27-281c-14-145-77-220-196-224z" fill="url(#uni)"/>
+ <path d="M366 490c29 40 67 60 113 60 46 0 86-21 118-63l18 44c-29 52-74 79-136 81-62-1-106-28-132-81z" fill="#2a8ada"/>
+ <path d="M400 450l79 95 78-95-18-44H420z" fill="#d8ecff"/>
+ <rect x="447" y="535" width="65" height="310" rx="20" fill="#3a95dd" opacity=".65"/>
+ <path d="M300 658c-61 50-95 103-108 159-11 47 47 73 76 35l95-126z" fill="#cde5fa"/>
+ <path d="M642 655c54 26 89 68 105 126 14 48-40 83-76 46l-103-108z" fill="#cde5fa"/>
+ <circle cx="484" cy="322" r="130" fill="#f4c8a8"/>
+ <path d="M370 305c8-112 57-170 147-170 73 0 119 44 139 131-40-24-83-37-129-37-68 0-120 25-157 76z" fill="#113f82"/>
+ <path d="M358 264c49-52 107-76 175-72 58 4 105 28 140 73-85-24-190-24-315-1z" fill="#1c5ca8"/>
+ <path d="M378 338c19-17 39-20 60-7M530 331c21-12 42-9 61 8" fill="none" stroke="#513629" stroke-width="9" stroke-linecap="round"/>
+ <ellipse cx="420" cy="357" rx="7" ry="10" fill="#2c2927"/><ellipse cx="557" cy="357" rx="7" ry="10" fill="#2c2927"/>
+ <path d="M445 415c29 25 61 25 94 0" fill="none" stroke="#ad5263" stroke-width="9" stroke-linecap="round"/>
+ <path d="M665 703l-61 115 94 50 44-114z" fill="#163f7a"/>
+ <rect x="648" y="718" width="65" height="112" rx="8" fill="#e8f8ff" transform="rotate(15 680 774)"/>
+</g>
+</svg>
