@@ -49,4 +49,8 @@ body.hero-passed .fixed-cta{opacity:1;visibility:visible}
   .header.is-scrolled+.mobile-menu{top:68px}
 }
 
-.hero-sub-reference{background:#efefef;padding:0 0 18px}.hero-sub-reference-image{display:block;width:100%;height:auto;max-width:none}
+.hero-sub-reference{background:#efefef;padding:0 0 18px;margin-top:-10px;position:relative;z-index:3}.hero-sub-reference-image{display:block;width:100%;height:auto;max-width:none}
+
+.hero-cta-reference{background:#4f86c8;padding:0;position:relative}.hero-cta-reference-image{display:block;width:100%;height:auto;max-width:none}.hero-cta-green-cover{position:absolute;left:6.6%;top:49.8%;width:86.8%;height:21.4%;background:#ececec;border-radius:3.2vw;z-index:1}.hero-cta-green-animated{position:absolute;left:7.05%;top:50.32%;width:85.9%;height:auto;z-index:2;transform-origin:center center;animation:ctaPulse 1.6s ease-in-out infinite;will-change:transform,filter}.hero-cta-green-animated:hover{animation-play-state:paused}@keyframes ctaPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+
+@media(prefers-reduced-motion:reduce){.hero-cta-green-animated{animation:none!important}}
