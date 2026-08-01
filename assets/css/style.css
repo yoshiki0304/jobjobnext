@@ -48,3 +48,5 @@ body.hero-passed .fixed-cta{opacity:1;visibility:visible}
   .header.is-scrolled{height:68px;padding:0 14px}
   .header.is-scrolled+.mobile-menu{top:68px}
 }
+
+.hero-sub-reference{background:#efefef;padding:0 0 18px}.hero-sub-reference-image{display:block;width:100%;height:auto;max-width:none}
