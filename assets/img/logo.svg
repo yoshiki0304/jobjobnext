@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 150" role="img" aria-label="オタスケ工場JOB">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 150" role="img" aria-label="はたらくナビすぐワーク">
   <defs>
     <linearGradient id="g" x1="0" x2="1"><stop stop-color="#05bde8"/><stop offset="1" stop-color="#1261d8"/></linearGradient>
   </defs>
   <rect x="8" y="18" width="112" height="112" rx="30" fill="url(#g)"/>
   <path d="M36 83h58v28H36z" fill="#fff"/><path d="M45 83V59l13 9V54l14 10V48l22 15v20" fill="none" stroke="#fff" stroke-width="9" stroke-linejoin="round"/>
   <circle cx="51" cy="96" r="5" fill="#0a74d6"/><circle cx="67" cy="96" r="5" fill="#0a74d6"/><circle cx="83" cy="96" r="5" fill="#0a74d6"/>
-  <text x="140" y="72" font-family="Arial,'Noto Sans JP',sans-serif" font-size="46" font-weight="900" fill="#073d86">オタスケ</text>
-  <text x="140" y="122" font-family="Arial,'Noto Sans JP',sans-serif" font-size="54" font-weight="900" fill="#ef2378">工場JOB</text>
+  <text x="140" y="68" font-family="Arial,'Noto Sans JP',sans-serif" font-size="42" font-weight="900" fill="#073d86">はたらくナビ</text>
+  <text x="140" y="122" font-family="Arial,'Noto Sans JP',sans-serif" font-size="48" font-weight="900" fill="#ef2378">すぐワーク</text>
 </svg>

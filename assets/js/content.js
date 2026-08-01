@@ -4,12 +4,12 @@
    ========================================================== */
 window.SITE_CONTENT = {
   brand: {
-    name: "オタスケ工場JOB",
-    phone: "0120-000-000",
-    phoneHref: "tel:0120000000",
+    name: "はたらくナビすぐワーク",
+    phone: "092-600-3558",
+    phoneHref: "tel:0926003558",
     lineUrl: "https://line.me/R/ti/p/@example",
     email: "info@example.jp",
-    copyright: "© 2026 オタスケ工場JOB"
+    copyright: "© 2026 はたらくナビすぐワーク"
   },
   hero: {
     eyebrow: "住み込み・寮付きの工場求人",
