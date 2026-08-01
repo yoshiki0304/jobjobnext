@@ -97,7 +97,7 @@ body.hero-passed .fixed-cta{opacity:1;visibility:visible}
 
 /* Brand and phone replacements */
 .hero--reference{position:relative}
-.hero-header-replacement{position:absolute;left:0;top:0;width:100%;height:auto;z-index:5;display:block}
+.hero-header-replacement{position:absolute;left:0;top:0;width:100%;height:auto;z-index:5;display:block;clip-path:inset(0 0 6px 0);transform:translateY(-1px)}
 .hero-cta-phone-overlay{position:absolute;left:27.7%;top:82.9%;width:46%;height:6.3%;z-index:5;display:flex;align-items:center;justify-content:center;background:#ff7410;color:#fff;text-decoration:none;font-family:Arial,'Noto Sans JP',sans-serif;font-size:clamp(1.55rem,5.8vw,2.65rem);font-weight:900;line-height:1;letter-spacing:-.04em}
 .header{height:138px}
 .menu-btn{height:138px}
