@@ -109,3 +109,17 @@ body.hero-passed .fixed-cta{opacity:1;visibility:visible}
   .header:not(.is-scrolled) .menu-btn{width:calc(100vw * 220 / 2048);height:calc(100vw * 370 / 2048)}
   .header:not(.is-scrolled)+.mobile-menu{top:calc(100vw * 370 / 2048)}
 }
+
+
+/* support section horizontal scroll */
+.support-list{display:flex !important;gap:16px;overflow-x:auto;padding:8px 4px 18px;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.support-list::-webkit-scrollbar{display:none}
+.support-card{flex:0 0 min(82%,300px);scroll-snap-align:start;display:flex;flex-direction:column;min-height:500px;border-radius:24px}
+.support-card__image img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.support-card__body{display:flex;flex-direction:column;gap:16px;padding:22px 20px 26px;flex:1}
+.support-card__no{border-right:0;border-bottom:2px solid #e0e9f0;padding-bottom:14px;font-size:2.4rem}
+.support-card h3{font-size:1.5rem;line-height:1.35}
+.support-card p{font-size:1rem;line-height:1.7}
+@media(max-width:640px){
+  .support-card{flex-basis:84%;min-height:520px}
+}

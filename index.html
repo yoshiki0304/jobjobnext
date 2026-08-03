@@ -1,40 +1,42 @@
-<!doctype html>
-<html lang="ja">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>はたらくナビすぐワーク｜LPマンガ挿入版</title>
-  <meta name="description" content="はたらくナビすぐワークの承認済みデザインに、5つの支援の上へマンガを挿入した細長いLPです。">
-  <meta name="theme-color" content="#0b4ea2">
-  <style>
-    :root{--bg:#eef3f9;--card:#fff;--shadow:0 20px 60px rgba(0,35,88,.16);--phone:#ff8b10;--line:#15c43f;--radius:22px}
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;color:#16314f}
-    img{display:block;max-width:100%} a{text-decoration:none;color:inherit}
-    .page{width:min(100%,440px);margin:0 auto;padding:10px 8px 94px}
-    .lp-wrap{position:relative;line-height:0;background:var(--card);box-shadow:var(--shadow);border-radius:22px;overflow:hidden}
-    .lp-image{width:100%;height:auto;display:block}
-    .hotspot{position:absolute;display:block;z-index:3}
-    /* updated CTA positions after manga insertion */
-    .hotspot--line{left:50.0%;top:79.2%;width:43.0%;height:4.0%;border-radius:16px}
-    .hotspot--phone{left:50.0%;top:83.1%;width:43.0%;height:3.8%;border-radius:16px}
-    .fixed-cta{position:fixed;left:50%;bottom:8px;transform:translateX(-50%);width:min(calc(100% - 12px),440px);display:grid;grid-template-columns:1fr 1.15fr;gap:8px;padding:8px;background:rgba(255,255,255,.94);border-radius:18px;box-shadow:0 14px 32px rgba(0,31,74,.22);backdrop-filter:blur(12px);z-index:20}
-    .fixed-cta a{min-height:54px;border-radius:14px;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:800;line-height:1.35;padding:8px 10px;font-size:14px}
-    .fixed-cta__phone{background:var(--phone);color:#fff}.fixed-cta__line{background:var(--line);color:#fff}
-    @media (max-width:420px){.page{padding:8px 6px 90px}.fixed-cta{width:calc(100% - 8px);bottom:4px}.fixed-cta a{min-height:52px;font-size:13px}}
-  </style>
-</head>
-<body>
-  <main class="page">
-    <section class="lp-wrap" aria-label="はたらくナビすぐワーク ランディングページ マンガ挿入版">
-      <img class="lp-image" src="assets/lp-design.png" alt="はたらくナビすぐワークのランディングページ。5つの支援の上にマンガを挿入した版。">
-      <a class="hotspot hotspot--line" href="#" aria-label="LINEで無料相談"></a>
-      <a class="hotspot hotspot--phone" href="tel:0926003558" aria-label="092-600-3558に電話する"></a>
-    </section>
-  </main>
-  <div class="fixed-cta" aria-label="固定相談ボタン">
-    <a class="fixed-cta__phone" href="tel:0926003558">電話で相談<br>092-600-3558</a>
-    <a class="fixed-cta__line" href="#">LINEで無料相談</a>
-  </div>
-</body>
-</html>
+<!doctype html><html lang="ja"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>住み込み・寮付き工場求人｜はたらくナビすぐワーク</title>
+<meta name="description" content="住み込み・寮付き工場求人の無料相談。仕事・寮・赴任・生活面の不安をまとめて相談できます。">
+<meta name="theme-color" content="#073d86"><link rel="icon" href="assets/img/logo.svg"><link rel="stylesheet" href="assets/css/style.css">
+<script defer src="assets/js/content.js"></script><script defer src="assets/js/app.js"></script>
+</head><body><div class="site-shell">
+<header class="header"><a href="#top"><img class="logo" src="assets/img/logo.svg" alt="はたらくナビすぐワーク"></a><div class="header__cta"><a class="header__phone" data-phone-link href="tel:0926003558">電話で相談</a><a class="header__line" data-line-link href="#">LINE相談</a></div><button class="menu-btn" id="menuBtn" aria-label="メニュー" aria-expanded="false"><span></span></button></header>
+<nav class="mobile-menu" id="mobileMenu"><a href="#support">5つの支援</a><a href="#jobs">求人例</a><a href="#difference">他社との違い</a><a href="#flow">入社までの流れ</a><a href="#faq">よくある質問</a><a href="#contact">無料相談</a></nav>
+<main id="top">
+<section class="hero hero--reference" aria-label="住み込み製造工場求人">
+<img class="hero-reference-image" src="assets/img/hero-top-reference.png" alt="お金がない、住む家がない、給料が低いといった悩みに対応する住み込み製造工場求人">
+<img class="hero-header-replacement" src="assets/img/hero-header-replacement.png" alt="はたらくナビすぐワークのヘッダー画像">
+</section>
+<section class="hero-sub-reference" aria-label="入社特典バナー">
+<img class="hero-sub-reference-image" src="assets/img/hero-bottom-reference.png" alt="最短即日入寮、お仕事件数No.1、採用率92%、最大10万円を入社即日に支給するキャンペーン案内">
+</section>
+<section class="hero-cta-reference" aria-label="LINE相談と電話相談案内">
+<img class="hero-cta-reference-image" src="assets/img/hero-cta-reference.png" alt="30秒で申し込み完了、LINE無料相談、電話相談の案内">
+<div class="hero-cta-green-cover" aria-hidden="true"></div>
+<img class="hero-cta-green-animated" src="assets/img/hero-cta-green-button.png" alt="">
+<a class="hero-cta-phone-overlay" data-phone-link href="tel:0926003558" aria-label="092-600-3558に電話する">092-600-3558</a>
+</section>
+<section class="hero-support-reference" aria-label="サポート案内画像">
+<img class="hero-support-reference-image hero-support-reference-image--yellow" src="assets/img/support-yellow-top.png" alt="このような方を求人企業が徹底サポート">
+<img class="hero-support-reference-image" src="assets/img/support-grid-1.png" alt="携帯がない、移動費がない方向けのサポート内容">
+<img class="hero-support-reference-image" src="assets/img/support-grid-2.png" alt="住むところがない、お金がない方向けのサポート内容">
+</section>
+<section class="section"><div class="container"><p class="section-kicker">PROBLEM</p><h2 class="section-title">その不安、<span class="marker">相談していい内容</span>です</h2><div class="problem__box reveal"><ul class="problem__list" id="worryList"></ul></div><div class="solution reveal"><strong>もう、ひとりで悩まなくて大丈夫。</strong><p>住まい・仕事・移動・入社後まで、専任担当がまとめて案内します。</p></div></div></section>
+<section class="section section--pale" id="support"><div class="container"><p class="section-kicker">SUPPORT</p><h2 class="section-title">あなたの再スタートを支える<br><span class="marker">5つの支援</span></h2><p class="section-lead">今の状況に合わせて、仕事探しだけでなく生活面まで確認します。</p><div class="support-list" id="supportList"></div></div></section>
+<section class="section" id="jobs"><div class="container"><p class="section-kicker">JOB EXAMPLES</p><h2 class="section-title">このような<span class="marker">スライド形式</span>で<br>職業をご紹介します</h2><p class="section-lead">左右にスライドしながら、給与・勤務地・仕事内容を見比べられます。</p><div class="job-slider job-slider--showcase"><div class="job-track" id="jobTrack"></div><div class="slider-nav"><button id="jobPrev" aria-label="前の求人">←</button><button id="jobNext" aria-label="次の求人">→</button></div><div class="slider-dots" id="jobDots" aria-label="求人スライドのページ位置"></div></div><p class="job-note">※掲載内容は求人例です。募集状況・条件・支援内容は案件により異なります。</p></div></section>
+<section class="section section--pale" id="difference"><div class="container"><p class="section-kicker">DIFFERENCE</p><h2 class="section-title">早さだけではない<br><span class="marker">再スタート支援</span></h2><p class="section-lead">求人を紹介して終わりではなく、入社まで進むこと・続けられることを重視します。</p><div class="compare-wrap reveal"><table class="compare-table"><thead><tr><th>比較項目</th><th>A社</th><th>B社</th><th>はたらくナビすぐワーク</th></tr></thead><tbody id="compareBody"></tbody></table></div></div></section>
+<section class="section section--navy" id="flow"><div class="container"><p class="section-kicker">FLOW</p><h2 class="section-title">相談から入社までの<br>6ステップ</h2><p class="section-lead">初めてでも進めやすいよう、担当者が一つずつ確認します。</p><div class="flow-list" id="flowList"></div></div></section>
+<section class="section"><div class="container"><p class="section-kicker">VOICE</p><h2 class="section-title">利用者の声</h2><p class="section-lead">仕事や住まいに不安があった方から寄せられた相談事例です。</p><div class="voice-list" id="voiceList"></div></div></section>
+<section class="section section--pale" id="faq"><div class="container"><p class="section-kicker">FAQ</p><h2 class="section-title">よくあるご質問</h2><div class="faq-list" id="faqList"></div></div></section>
+<section class="section section--navy" id="contact"><div class="container"><p class="section-kicker">FREE CONSULTATION</p><h2 class="section-title">まずは今の状況を<br>そのままご相談ください</h2><p class="section-lead">相談・求人紹介は無料です。応募するか決めていなくても問題ありません。</p><form class="contact-card" action="send-mail.php" method="post"><input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off"><input type="hidden" name="source" id="source"><div class="contact-grid"><div class="field"><label for="name">お名前<span class="required">必須</span></label><input id="name" name="name" required autocomplete="name" placeholder="山田 太郎"></div><div class="field"><label for="kana">フリガナ<span class="required">必須</span></label><input id="kana" name="kana" required placeholder="ヤマダ タロウ"></div><div class="field"><label for="tel">電話番号<span class="required">必須</span></label><input id="tel" name="tel" required inputmode="tel" autocomplete="tel" placeholder="090-1234-5678"></div><div class="field"><label for="birth">生年月日<span class="required">必須</span></label><input id="birth" name="birth" type="date" required></div><div class="field field--wide"><label for="email">メールアドレス<span class="required">必須</span></label><input id="email" name="email" type="email" required autocomplete="email" placeholder="example@mail.com"></div><div class="field field--wide"><label for="message">相談内容</label><textarea id="message" name="message" placeholder="現在の状況、希望勤務地、入寮希望日など"></textarea></div></div><label class="privacy"><input type="checkbox" name="privacy" value="同意" required>個人情報の取り扱いに同意のうえ送信します。</label><button class="submit-btn" type="submit">無料相談を申し込む</button><div class="contact-alt"><a class="contact-alt__phone" data-phone-link href="tel:0926003558">電話：<span data-phone>092-600-3558</span></a><a class="contact-alt__line" data-line-link href="#">LINEで相談する</a></div></form></div></section>
+</main>
+<footer class="footer"><img src="assets/img/logo.svg" alt=""><p>住み込み・寮付き工場求人の無料相談サービス</p><p><a data-phone-link href="tel:0926003558" data-phone>092-600-3558</a></p><p data-copyright></p></footer>
+</div>
+<div class="fixed-cta"><a class="fixed-cta__phone" data-phone-link href="tel:0926003558">☎ 電話相談</a><a class="fixed-cta__line" data-line-link href="#">LINEで無料相談</a></div>
+<div class="line-popup" id="linePopup" aria-hidden="true"><div class="line-popup__card"><button class="line-popup__close" id="popupClose" aria-label="閉じる">×</button><div class="line-popup__icon">LINE</div><h3>仕事と住まいの悩みを<br>LINEで無料相談</h3><p>何から話せばいいか分からない状態でも大丈夫です。</p><a data-line-link href="#">LINE相談を始める</a></div></div>
+</body></html>
