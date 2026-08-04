@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>はたらくナビすぐワーク｜5つの支援 横スクロール版</title>
-  <meta name="description" content="はたらくナビすぐワークのLPです。マンガの下にある5つの支援を、縦幅を長めにした横スクロール形式で表示しています。">
+  <title>はたらくナビすぐワーク｜TOPさらに縦長版</title>
+  <meta name="description" content="はたらくナビすぐワークのLPです。TOPページをさらに少し縦長に調整した版です。">
   <meta name="theme-color" content="#0b4ea2">
   <style>
     :root{--bg:#eef3f9;--card:#fff;--shadow:0 20px 60px rgba(0,35,88,.16);--phone:#ff8b10;--line:#15c43f;--radius:22px;--blue:#13479d;--text:#1f2f45}
@@ -13,7 +13,9 @@
     img{display:block;max-width:100%} a{text-decoration:none;color:inherit}
     .page{width:min(100%,440px);margin:0 auto;padding:8px 6px 90px}
     .panel{background:#fff;border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}
-    .top-image,.bottom-image{width:100%;height:auto;display:block}
+    .top-frame{position:relative;background:#e7edf4;overflow:hidden;aspect-ratio:44/28}
+    .top-image{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+    .bottom-image{width:100%;height:auto;display:block}
     .support-scroller-wrap{background:#f9fafc;padding:18px 0 16px}
     .support-scroller{display:flex;gap:14px;overflow-x:auto;padding:0 14px 10px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
     .support-scroller::-webkit-scrollbar{height:8px}
@@ -36,39 +38,19 @@
 <body>
   <main class="page">
     <div class="panel">
-      <img class="top-image" src="assets/top.png" alt="はたらくナビすぐワークのLP上部とマンガ部分">
-
+      <div class="top-frame">
+        <img class="top-image" src="assets/top.png" alt="はたらくナビすぐワークのLP上部とマンガ部分">
+      </div>
       <section class="support-scroller-wrap" aria-label="5つの支援 横スクロール">
         <div class="support-scroller">
-          <article class="support-card">
-            <h3 class="support-card__title">携帯がなくてもOK</h3>
-            <div class="support-card__img"><img src="assets/support1.png" alt="携帯がなくてもOK"></div>
-            <div class="support-card__text">スマホの貸出で<br>すぐに連絡が取れます</div>
-          </article>
-          <article class="support-card">
-            <h3 class="support-card__title">移動費用サポート</h3>
-            <div class="support-card__img"><img src="assets/support2.png" alt="移動費用サポート"></div>
-            <div class="support-card__text">面接や入社の際の<br>交通費をサポート</div>
-          </article>
-          <article class="support-card">
-            <h3 class="support-card__title">住む場所を用意</h3>
-            <div class="support-card__img"><img src="assets/support3.png" alt="住む場所を用意"></div>
-            <div class="support-card__text">寮付きのお仕事多数！<br>初期費用もかかりません</div>
-          </article>
-          <article class="support-card">
-            <h3 class="support-card__title">日払い・週払いOK</h3>
-            <div class="support-card__img"><img src="assets/support4.png" alt="日払い・週払いOK"></div>
-            <div class="support-card__text">急な出費も安心の<br>日払い・週払い対応</div>
-          </article>
-          <article class="support-card">
-            <h3 class="support-card__title">仕事と住まいの<br>相談サポート</h3>
-            <div class="support-card__img"><img src="assets/support5.png" alt="仕事と住まいの相談サポート"></div>
-            <div class="support-card__text">専任スタッフが<br>丁寧にサポートします</div>
-          </article>
+          <article class="support-card"><h3 class="support-card__title">携帯がなくてもOK</h3><div class="support-card__img"><img src="assets/support1.png" alt="携帯がなくてもOK"></div><div class="support-card__text">スマホの貸出で<br>すぐに連絡が取れます</div></article>
+          <article class="support-card"><h3 class="support-card__title">移動費用サポート</h3><div class="support-card__img"><img src="assets/support2.png" alt="移動費用サポート"></div><div class="support-card__text">面接や入社の際の<br>交通費をサポート</div></article>
+          <article class="support-card"><h3 class="support-card__title">住む場所を用意</h3><div class="support-card__img"><img src="assets/support3.png" alt="住む場所を用意"></div><div class="support-card__text">寮付きのお仕事多数！<br>初期費用もかかりません</div></article>
+          <article class="support-card"><h3 class="support-card__title">日払い・週払いOK</h3><div class="support-card__img"><img src="assets/support4.png" alt="日払い・週払いOK"></div><div class="support-card__text">急な出費も安心の<br>日払い・週払い対応</div></article>
+          <article class="support-card"><h3 class="support-card__title">仕事と住まいの<br>相談サポート</h3><div class="support-card__img"><img src="assets/support5.png" alt="仕事と住まいの相談サポート"></div><div class="support-card__text">専任スタッフが<br>丁寧にサポートします</div></article>
         </div>
         <div class="support-hint">左右にスワイプしてご覧ください</div>
       </section>
-
       <div class="bottom-wrap">
         <img class="bottom-image" src="assets/bottom.png" alt="LINE相談・電話相談・職業紹介・フッター部分">
         <a class="hotspot hotspot--line" href="#" aria-label="LINEで無料相談"></a>
@@ -76,7 +58,6 @@
       </div>
     </div>
   </main>
-
   <div class="fixed-cta" aria-label="固定相談ボタン">
     <a class="fixed-cta__phone" href="tel:0926003558">電話で相談<br>092-600-3558</a>
     <a class="fixed-cta__line" href="#">LINEで無料相談</a>
