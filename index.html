@@ -33,6 +33,21 @@
     .fixed-cta a{min-height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:800;line-height:1.35;padding:8px 10px;font-size:13px}
     .fixed-cta__phone{background:var(--phone);color:#fff}.fixed-cta__line{background:var(--line);color:#fff}
     .footer-image{width:100%;height:auto;display:block}
+    .section-head{margin:0 14px 14px;padding:16px 18px;border-radius:18px;background:linear-gradient(135deg,#0a4ead,#2d79de);color:#fff;font-size:1.55rem;font-weight:900;line-height:1.35;text-align:center;box-shadow:0 8px 20px rgba(0,35,88,.10)}
+    .faq-section,.flow-section{background:#f9fafc;padding:16px 14px 18px;border-top:1px solid #edf2f7}
+    .faq-list{display:grid;gap:12px}
+    .faq-item{background:#fff;border:1px solid #dde4ef;border-radius:18px;box-shadow:0 8px 20px rgba(0,35,88,.06);overflow:hidden}
+    .faq-item summary{list-style:none;cursor:pointer;padding:16px 18px;font-size:1.02rem;font-weight:800;color:#173f92;display:flex;gap:10px;align-items:flex-start}
+    .faq-item summary::-webkit-details-marker{display:none}
+    .faq-item summary span{color:#ff7b00;font-size:1.15rem;line-height:1}
+    .faq-item p{margin:0;padding:0 18px 18px 46px;font-size:.97rem;line-height:1.75;color:#34465e}
+    .flow-list{display:grid;gap:12px}
+    .flow-card{background:#fff;border:1px solid #dde4ef;border-radius:18px;box-shadow:0 8px 20px rgba(0,35,88,.06);padding:18px 16px;text-align:center}
+    .flow-step{display:inline-flex;align-items:center;justify-content:center;height:32px;padding:0 12px;border-radius:999px;background:#ff8b10;color:#fff;font-size:.88rem;font-weight:900;margin-bottom:10px}
+    .flow-card h3{margin:0 0 8px;font-size:1.08rem;color:#173f92}
+    .flow-card p{margin:0;font-size:.95rem;line-height:1.7;color:#34465e}
+    @media (min-width: 769px){.faq-list{grid-template-columns:1fr 1fr}.flow-list{grid-template-columns:repeat(5,1fr)}}
+
     .jobs-scroller-wrap{background:#f9fafc;padding:10px 0 16px;border-top:1px solid #edf2f7}
     .jobs-heading-image{width:100%;height:auto;display:block}
     .jobs-scroller{display:flex;gap:14px;overflow-x:auto;padding:0 14px 10px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
@@ -86,15 +101,38 @@
         <a class="hotspot hotspot--phone" href="tel:0926003558" aria-label="092-600-3558に電話する"></a>
       </div>
 
+
+      <section class="faq-section" aria-label="よくある質問Q&A">
+        <div class="section-head">よくある質問Q&amp;A</div>
+        <div class="faq-list">
+          <details class="faq-item" open><summary><span>Q.</span> 未経験でも応募できますか？</summary><p>はい、未経験歓迎の求人が多数あります。専任スタッフが条件に合うお仕事をご案内します。</p></details>
+          <details class="faq-item"><summary><span>Q.</span> 寮付きのお仕事はありますか？</summary><p>あります。家具家電付き・初期費用ほぼ不要の寮付き求人もご紹介できます。</p></details>
+          <details class="faq-item"><summary><span>Q.</span> 手持ちのお金が少なくても大丈夫ですか？</summary><p>日払い・週払い対応求人や生活支援のある案件もあるので、まずはお気軽にご相談ください。</p></details>
+          <details class="faq-item"><summary><span>Q.</span> 応募してからどれくらいで働けますか？</summary><p>案件によっては最短で面談後すぐにご案内可能です。入寮までスピーディーに進む求人もあります。</p></details>
+        </div>
+      </section>
+
       <section class="jobs-scroller-wrap" aria-label="お仕事紹介 横スクロール">
         <img class="jobs-heading-image" src="assets/jobs_heading.png" alt="いろいろなお仕事をご紹介！">
         <div class="jobs-scroller">
-          <article class="job-card"><h3 class="job-card__title">製造スタッフ</h3><div class="job-card__img"><img src="assets/job1.png" alt="製造スタッフ"></div><div class="job-card__text"><p><span class="job-label">月収例</span> <strong>28万円</strong>以上</p><p class="job-place">愛知県</p><p>2交替制・土日休み</p></div></article>
-          <article class="job-card"><h3 class="job-card__title">組立・検査</h3><div class="job-card__img"><img src="assets/job2.png" alt="組立・検査"></div><div class="job-card__text"><p><span class="job-label">月収例</span> <strong>24万円</strong>以上</p><p class="job-place">大阪府</p><p>日勤・土日休み</p></div></article>
-          <article class="job-card"><h3 class="job-card__title">機械オペレーター</h3><div class="job-card__img"><img src="assets/job3.png" alt="機械オペレーター"></div><div class="job-card__text"><p><span class="job-label">月収例</span> <strong>30万円</strong>以上</p><p class="job-place">福岡県</p><p>3交替制・シフト制</p></div></article>
-          <article class="job-card"><h3 class="job-card__title">フォークリフト作業</h3><div class="job-card__img"><img src="assets/job4.png" alt="フォークリフト作業"></div><div class="job-card__text"><p><span class="job-label">月収例</span> <strong>26万円</strong>以上</p><p class="job-place">神奈川県</p><p>日勤・土日休み</p></div></article>
+          <article class="job-card"><h3 class="job-card__title">製造スタッフ</h3><div class="job-card__img"><img src="assets/job1.png" alt="製造スタッフ"></div><div class="job-card__text"><p><span class="job-label">月収例</span> <strong>38万円</strong>以上</p><p class="job-place">愛知県</p><p>2交替制・土日休み</p></div></article>
+          <article class="job-card"><h3 class="job-card__title">組立・検査</h3><div class="job-card__img"><img src="assets/job2.png" alt="組立・検査"></div><div class="job-card__text"><p><span class="job-label">月収例</span> <strong>34万円</strong>以上</p><p class="job-place">大阪府</p><p>日勤・土日休み</p></div></article>
+          <article class="job-card"><h3 class="job-card__title">機械オペレーター</h3><div class="job-card__img"><img src="assets/job3.png" alt="機械オペレーター"></div><div class="job-card__text"><p><span class="job-label">月収例</span> <strong>40万円</strong>以上</p><p class="job-place">福岡県</p><p>3交替制・シフト制</p></div></article>
+          <article class="job-card"><h3 class="job-card__title">フォークリフト作業</h3><div class="job-card__img"><img src="assets/job4.png" alt="フォークリフト作業"></div><div class="job-card__text"><p><span class="job-label">月収例</span> <strong>36万円</strong>以上</p><p class="job-place">神奈川県</p><p>日勤・土日休み</p></div></article>
         </div>
         <div class="jobs-hint">左右にスワイプしてご覧ください</div>
+      </section>
+
+
+      <section class="flow-section" aria-label="応募からお仕事スタートまでのフロー">
+        <div class="section-head">応募からお仕事スタートまでのフロー</div>
+        <div class="flow-list">
+          <article class="flow-card"><div class="flow-step">STEP 1</div><h3>ご相談・応募</h3><p>LINE・電話からお気軽にご連絡ください。</p></article>
+          <article class="flow-card"><div class="flow-step">STEP 2</div><h3>求人紹介</h3><p>ご希望条件に合うお仕事をご紹介します。</p></article>
+          <article class="flow-card"><div class="flow-step">STEP 3</div><h3>面接・選考</h3><p>応募先企業との面接日程を調整します。</p></article>
+          <article class="flow-card"><div class="flow-step">STEP 4</div><h3>入寮・赴任準備</h3><p>住まい・移動・持ち物などをサポートします。</p></article>
+          <article class="flow-card"><div class="flow-step">STEP 5</div><h3>お仕事スタート</h3><p>勤務開始後も専任スタッフが継続フォローします。</p></article>
+        </div>
       </section>
 
       <img class="footer-image" src="assets/footer_bar.png" alt="フッター"></div>
