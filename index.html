@@ -3,144 +3,318 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>はたらくナビすぐワーク｜10万円版</title>
-  <meta name="description" content="はたらくナビすぐワークのLPです。生活支援金10万円キャンペーン、マンガ、5つの支援、相談導線を掲載しています。">
-  <meta name="theme-color" content="#0b4ea2">
-  <style>
-    :root{--bg:#eef3f9;--card:#fff;--shadow:0 20px 60px rgba(0,35,88,.16);--phone:#ff8b10;--line:#15c43f;--radius:22px;--blue:#13479d;--text:#1f2f45}
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;color:var(--text)}
-    img{display:block;max-width:100%} a{text-decoration:none;color:inherit}
-    .page{width:min(100%,440px);margin:0 auto;padding:8px 6px 90px}
-    .panel{background:#fff;border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}
-    .top-image,.bottom-image,.manga-image{width:100%;height:auto;display:block}
-    .manga-wrap{background:#fff;padding:0;border-top:1px solid #edf2f7;border-bottom:1px solid #edf2f7}
-    .top-wrap{position:relative;line-height:0;overflow:hidden}
-    .campaign-layer{position:absolute;left:0.6630500301386377%;top:18.88185654008439%;width:57.444243520192884%;height:auto;transform-origin:center center;animation:campaignSelfPulse 1.8s ease-in-out infinite;will-change:transform}
-    @keyframes campaignSelfPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
-    @media(prefers-reduced-motion:reduce){.campaign-layer{animation:none}}
-
-    .support-scroller-wrap{background:#f9fafc;padding:18px 0 16px}
-    .support-scroller{display:flex;gap:14px;overflow-x:auto;padding:0 14px 10px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
-    .support-scroller::-webkit-scrollbar{height:8px}
-    .support-scroller::-webkit-scrollbar-thumb{background:#b6c8e7;border-radius:999px}
-    .support-card{flex:0 0 82%;scroll-snap-align:start;background:#fff;border:1px solid #dde4ef;border-radius:20px;min-height:366px;box-shadow:0 8px 20px rgba(0,35,88,.08);overflow:hidden;display:flex;flex-direction:column}
-    .support-card__title{font-size:1.85rem;line-height:1.25;font-weight:800;color:#173f92;text-align:center;padding:18px 14px 10px;min-height:104px;display:flex;align-items:center;justify-content:center}
-    .support-card__img{padding:0 14px}
-    .support-card__img img{width:100%;aspect-ratio:1.36/1;object-fit:cover;border-radius:16px}
-    .support-card__text{padding:18px 18px 22px;font-size:1.3rem;line-height:1.55;text-align:center;color:#333;flex:1;display:flex;align-items:center;justify-content:center}
-    .support-hint{padding:0 16px 2px;font-size:12px;font-weight:700;color:#5a6d85;text-align:center}
-    .bottom-wrap{position:relative;line-height:0}
-    .hotspot{position:absolute;display:block;z-index:3}
-    .hotspot--line{left:50.0%;top:5.2%;width:43.0%;height:35.5%;border-radius:16px}
-    .hotspot--phone{left:50.0%;top:45.2%;width:43.0%;height:33.5%;border-radius:16px}
-    .fixed-cta{position:fixed;left:50%;bottom:4px;transform:translateX(-50%);width:min(calc(100% - 8px),440px);display:grid;grid-template-columns:1fr 1.15fr;gap:8px;padding:8px;background:rgba(255,255,255,.94);border-radius:18px;box-shadow:0 14px 32px rgba(0,31,74,.22);backdrop-filter:blur(12px);z-index:20}
-    .fixed-cta a{min-height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:800;line-height:1.35;padding:8px 10px;font-size:13px}
-    .fixed-cta__phone{background:var(--phone);color:#fff}.fixed-cta__line{background:var(--line);color:#fff}
-    .footer-image{width:100%;height:auto;display:block}
-    .section-head{margin:0 14px 14px;padding:16px 18px;border-radius:18px;background:linear-gradient(135deg,#0a4ead,#2d79de);color:#fff;font-size:1.55rem;font-weight:900;line-height:1.35;text-align:center;box-shadow:0 8px 20px rgba(0,35,88,.10)}
-    .faq-section,.flow-section{background:#f9fafc;padding:16px 14px 18px;border-top:1px solid #edf2f7}
-    .faq-list{display:grid;gap:12px}
-    .faq-item{background:#fff;border:1px solid #dde4ef;border-radius:18px;box-shadow:0 8px 20px rgba(0,35,88,.06);overflow:hidden}
-    .faq-item summary{list-style:none;cursor:pointer;padding:16px 18px;font-size:1.02rem;font-weight:800;color:#173f92;display:flex;gap:10px;align-items:flex-start}
-    .faq-item summary::-webkit-details-marker{display:none}
-    .faq-item summary span{color:#ff7b00;font-size:1.15rem;line-height:1}
-    .faq-item p{margin:0;padding:0 18px 18px 46px;font-size:.97rem;line-height:1.75;color:#34465e}
-    .flow-list{display:grid;gap:12px}
-    .flow-card{background:#fff;border:1px solid #dde4ef;border-radius:18px;box-shadow:0 8px 20px rgba(0,35,88,.06);padding:18px 16px;text-align:center}
-    .flow-step{display:inline-flex;align-items:center;justify-content:center;height:32px;padding:0 12px;border-radius:999px;background:#ff8b10;color:#fff;font-size:.88rem;font-weight:900;margin-bottom:10px}
-    .flow-card h3{margin:0 0 8px;font-size:1.08rem;color:#173f92}
-    .flow-card p{margin:0;font-size:.95rem;line-height:1.7;color:#34465e}
-
-    .jobs-scroller-wrap{background:#f9fafc;padding:10px 0 16px;border-top:1px solid #edf2f7}
-    .jobs-heading-image{width:100%;height:auto;display:block}
-    .jobs-scroller{display:flex;gap:14px;overflow-x:auto;padding:0 14px 10px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
-    .jobs-scroller::-webkit-scrollbar{height:8px}
-    .jobs-scroller::-webkit-scrollbar-thumb{background:#b6c8e7;border-radius:999px}
-    .job-card{flex:0 0 82%;scroll-snap-align:start;background:#fff;border:1px solid #dde4ef;border-radius:20px;min-height:366px;box-shadow:0 8px 20px rgba(0,35,88,.08);overflow:hidden;display:flex;flex-direction:column}
-    .job-card__title{font-size:1.2rem;line-height:1.2;font-weight:800;color:#fff;background:#0b53b6;text-align:center;padding:12px 14px;border-radius:14px;max-width:84%;margin:16px auto 12px}
-    .job-card__img{padding:0 14px}
-    .job-card__img img{width:100%;aspect-ratio:1.36/1;object-fit:cover;border-radius:16px}
-    .job-card__text{padding:18px 18px 22px;font-size:1rem;line-height:1.55;text-align:center;color:#333;flex:1;display:flex;flex-direction:column;justify-content:flex-start;gap:8px}
-    .job-card__text p{margin:0}
-    .job-card__text strong{font-size:2.2rem;color:#ff1d18;line-height:1;font-weight:900}
-    .job-label{font-weight:700;color:#333}
-    .job-place{font-size:1.2rem;font-weight:800;color:#173f92}
-    .jobs-hint{padding:0 16px 2px;font-size:12px;font-weight:700;color:#5a6d85;text-align:center}
-
-  </style>
+  <meta name="format-detection" content="telephone=no">
+  <title>寮付き求人・住み込み仕事｜はたらくナビすぐワーク</title>
+  <meta name="description" content="寮付き・住み込み求人を中心に、仕事探しから入寮・赴任までサポート。未経験から始められる製造・工場系求人も多数。はたらくナビすぐワークへ無料でご相談ください。">
+  <meta name="theme-color" content="#078b43">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="寮付き求人・住み込み仕事｜はたらくナビすぐワーク">
+  <meta property="og:description" content="仕事と住まいをまとめて相談。寮付き・未経験OKの求人をご案内します。">
+  <meta property="og:image" content="assets/images/brand-banner.webp">
+  <link rel="icon" href="assets/images/logo.webp" type="image/webp">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/config.js"></script>
+  <script defer src="assets/js/app.js"></script>
 </head>
 <body>
-  <main class="page">
-    <div class="panel">
-      <div class="top-wrap">
-        <img class="top-image" src="assets/top-base.png" alt="はたらくナビすぐワークのLP上部。生活支援金10万円キャンペーン。">
-        <img class="campaign-layer" src="assets/campaign-layer.png" alt="生活支援金10万円キャンペーン">
+  <a class="skip-link" href="#main">本文へ移動</a>
+
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="はたらくナビすぐワーク トップへ">
+        <img src="assets/images/logo.webp" width="76" height="76" alt="はたらくナビすぐワーク">
+        <span class="brand-copy"><small>寮付き求人・住まいの相談</small><strong>はたらくナビすぐワーク</strong></span>
+      </a>
+      <nav class="global-nav" aria-label="メインメニュー">
+        <a href="#about">サービス</a>
+        <a href="#jobs">求人例</a>
+        <a href="#reasons">選ばれる理由</a>
+        <a href="#flow">ご利用の流れ</a>
+        <a href="#faq">よくある質問</a>
+      </nav>
+      <div class="header-actions">
+        <a class="header-phone" href="tel:0926003558"><span>受付時間 9:00〜20:00</span><strong>092-600-3558</strong></a>
+        <a class="button button-line js-line-link" href="#contact">LINEで無料相談</a>
       </div>
-
-      <div class="manga-wrap" aria-label="サポートマンガ">
-        <img class="manga-image" src="assets/manga.png" alt="はたらくナビすぐワークのサポート内容を紹介するマンガ">
-      </div>
-
-      <section class="support-scroller-wrap" aria-label="5つの支援 横スクロール">
-        <div class="support-scroller">
-          <article class="support-card"><h3 class="support-card__title">食事支援</h3><div class="support-card__img"><img src="assets/support1.png" alt="食事支援"></div><div class="support-card__text">生活が不安な方へ、<br>食料面の相談も可能です</div></article>
-          <article class="support-card"><h3 class="support-card__title">携帯がなくてもOK</h3><div class="support-card__img"><img src="assets/support1.png" alt="携帯がなくてもOK"></div><div class="support-card__text">スマホの貸出で<br>すぐに連絡が取れます</div></article>
-          <article class="support-card"><h3 class="support-card__title">移動費用サポート</h3><div class="support-card__img"><img src="assets/support2.png" alt="移動費用サポート"></div><div class="support-card__text">面接や入社の際の<br>交通費をサポート</div></article>
-          <article class="support-card"><h3 class="support-card__title">住む場所を用意</h3><div class="support-card__img"><img src="assets/support3.png" alt="住む場所を用意"></div><div class="support-card__text">寮付きのお仕事多数！<br>初期費用もかかりません</div></article>
-          <article class="support-card"><h3 class="support-card__title">日払い・週払いOK</h3><div class="support-card__img"><img src="assets/support4.png" alt="日払い・週払いOK"></div><div class="support-card__text">急な出費も安心の<br>日払い・週払い対応</div></article>
-          <article class="support-card"><h3 class="support-card__title">仕事と住まいの<br>相談サポート</h3><div class="support-card__img"><img src="assets/support5.png" alt="仕事と住まいの相談サポート"></div><div class="support-card__text">専任スタッフが<br>丁寧にサポートします</div></article>
-        </div>
-        <div class="support-hint">左右にスワイプしてご覧ください</div>
-      </section>
-
-      <div class="bottom-wrap">
-        <img class="bottom-image" src="assets/cta_top.png" alt="LINE相談・電話相談部分">
-        <a class="hotspot hotspot--line" href="#" aria-label="LINEで無料相談"></a>
-        <a class="hotspot hotspot--phone" href="tel:0926003558" aria-label="092-600-3558に電話する"></a>
-      </div>
-
-
-      <section class="faq-section" aria-label="よくある質問Q&A">
-        <div class="section-head">よくある質問Q&amp;A</div>
-        <div class="faq-list">
-          <details class="faq-item" open><summary><span>Q.</span> 未経験でも応募できますか？</summary><p>はい、未経験歓迎の求人が多数あります。専任スタッフが条件に合うお仕事をご案内します。</p></details>
-          <details class="faq-item"><summary><span>Q.</span> 寮付きのお仕事はありますか？</summary><p>あります。家具家電付き・初期費用ほぼ不要の寮付き求人もご紹介できます。</p></details>
-          <details class="faq-item"><summary><span>Q.</span> 手持ちのお金が少なくても大丈夫ですか？</summary><p>日払い・週払い対応求人や生活支援のある案件もあるので、まずはお気軽にご相談ください。</p></details>
-          <details class="faq-item"><summary><span>Q.</span> 応募してからどれくらいで働けますか？</summary><p>案件によっては最短で面談後すぐにご案内可能です。入寮までスピーディーに進む求人もあります。</p></details>
-        </div>
-      </section>
-
-      <section class="jobs-scroller-wrap" aria-label="お仕事紹介 横スクロール">
-        <img class="jobs-heading-image" src="assets/jobs_heading.png" alt="いろいろなお仕事をご紹介！">
-        <div class="jobs-scroller">
-          <article class="job-card"><h3 class="job-card__title">製造スタッフ</h3><div class="job-card__img"><img src="assets/job1.png" alt="製造スタッフ"></div><div class="job-card__text"><p><span class="job-label">月収例</span> <strong>38万円</strong>以上</p><p class="job-place">愛知県</p><p>2交替制・土日休み</p></div></article>
-          <article class="job-card"><h3 class="job-card__title">組立・検査</h3><div class="job-card__img"><img src="assets/job2.png" alt="組立・検査"></div><div class="job-card__text"><p><span class="job-label">月収例</span> <strong>34万円</strong>以上</p><p class="job-place">大阪府</p><p>日勤・土日休み</p></div></article>
-          <article class="job-card"><h3 class="job-card__title">機械オペレーター</h3><div class="job-card__img"><img src="assets/job3.png" alt="機械オペレーター"></div><div class="job-card__text"><p><span class="job-label">月収例</span> <strong>40万円</strong>以上</p><p class="job-place">福岡県</p><p>3交替制・シフト制</p></div></article>
-          <article class="job-card"><h3 class="job-card__title">フォークリフト作業</h3><div class="job-card__img"><img src="assets/job4.png" alt="フォークリフト作業"></div><div class="job-card__text"><p><span class="job-label">月収例</span> <strong>36万円</strong>以上</p><p class="job-place">神奈川県</p><p>日勤・土日休み</p></div></article>
-        </div>
-        <div class="jobs-hint">左右にスワイプしてご覧ください</div>
-      </section>
-
-
-      <section class="flow-section" aria-label="応募からお仕事スタートまでのフロー">
-        <div class="section-head">応募からお仕事スタートまでのフロー</div>
-        <div class="flow-list">
-          <article class="flow-card"><div class="flow-step">STEP 1</div><h3>ご相談・応募</h3><p>LINE・電話からお気軽にご連絡ください。</p></article>
-          <article class="flow-card"><div class="flow-step">STEP 2</div><h3>求人紹介</h3><p>ご希望条件に合うお仕事をご紹介します。</p></article>
-          <article class="flow-card"><div class="flow-step">STEP 3</div><h3>面接・選考</h3><p>応募先企業との面接日程を調整します。</p></article>
-          <article class="flow-card"><div class="flow-step">STEP 4</div><h3>入寮・赴任準備</h3><p>住まい・移動・持ち物などをサポートします。</p></article>
-          <article class="flow-card"><div class="flow-step">STEP 5</div><h3>お仕事スタート</h3><p>勤務開始後も専任スタッフが継続フォローします。</p></article>
-        </div>
-      </section>
-
-      <img class="footer-image" src="assets/footer_bar.png" alt="フッター"></div>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="メニューを開く"><span></span><span></span><span></span></button>
     </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="スマートフォンメニュー">
+      <a href="#about">はたらくナビすぐワークとは</a>
+      <a href="#promise">3つの約束</a>
+      <a href="#jobs">求人情報</a>
+      <a href="#reasons">選ばれる5つの理由</a>
+      <a href="#voice">ご利用者の声</a>
+      <a href="#flow">ご利用の流れ</a>
+      <a href="#faq">よくある質問</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero section-dark">
+      <div class="hero-grid container">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span>今日から相談OK</span> 仕事と住まいを一緒に解決</p>
+          <h1>所持金や住まいに不安があっても、<br><em>新しい仕事は始められる。</em></h1>
+          <p class="hero-lead">寮付き・住み込み求人を中心に、面談から入寮・赴任まで専任スタッフがサポートします。</p>
+          <div class="hero-points" aria-label="主な特徴">
+            <div><strong>最短</strong><span>即日相談</span></div>
+            <div><strong>多数</strong><span>寮付き求人</span></div>
+            <div><strong>歓迎</strong><span>未経験応募</span></div>
+          </div>
+          <div class="hero-actions">
+            <a class="button button-line button-large js-line-link" href="#contact"><span class="button-kicker">＼ 30秒で相談開始 ／</span>LINEで無料相談</a>
+            <a class="button button-phone button-large" href="tel:0926003558"><span class="button-kicker">電話相談はこちら</span>092-600-3558</a>
+          </div>
+          <p class="microcopy">相談・求人紹介は無料です。強引な応募案内は行いません。</p>
+        </div>
+        <div class="hero-visual reveal" data-delay="120">
+          <div class="hero-badge"><b>寮付き</b><span>求人多数</span></div>
+          <div class="hero-photo hero-photo-main"><img src="assets/images/job-manufacturing.webp" alt="工場で働く日本人男性スタッフ"></div>
+          <div class="hero-photo hero-photo-sub"><img src="assets/images/job-inspection.webp" alt="製造現場で検査をする日本人女性スタッフ"></div>
+          <div class="hero-float-card"><b>履歴書不要で相談</b><span>希望条件をLINEで送るだけ</span></div>
+        </div>
+      </div>
+      <div class="hero-wave" aria-hidden="true"></div>
+    </section>
+
+    <section class="quick-benefits" aria-label="仕事探しの主なサポート">
+      <div class="container benefit-grid reveal">
+        <div class="benefit-item"><span class="icon-circle">⌂</span><b>寮費無料</b><small>案件あり</small></div>
+        <div class="benefit-item"><span class="icon-circle">¥</span><b>生活支援</b><small>対象条件あり</small></div>
+        <div class="benefit-item"><span class="icon-circle">⇄</span><b>赴任交通費</b><small>支給案件あり</small></div>
+        <div class="benefit-item"><span class="icon-circle">▣</span><b>スマホ相談</b><small>サポート可能</small></div>
+        <div class="benefit-item"><span class="icon-circle">日</span><b>日払い・週払い</b><small>対応案件あり</small></div>
+        <div class="benefit-item"><span class="icon-circle">初</span><b>未経験OK</b><small>製造求人多数</small></div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container narrow">
+        <div class="section-heading reveal">
+          <span class="section-label">ABOUT</span>
+          <h2>はたらくナビすぐワークとは</h2>
+          <p>「働きたいけれど、住まいや生活が不安」という方のための就職相談サービスです。</p>
+        </div>
+        <div class="brand-banner reveal"><img src="assets/images/brand-banner.webp" alt="すぐ見つかる、あなたに合う仕事。はたらくナビすぐワーク"></div>
+        <div class="support-summary reveal">
+          <div class="summary-copy">
+            <h3>最短即日から働ける求人、<br>寮付き求人をまとめてご案内</h3>
+            <p>希望する勤務地・収入・入寮時期を伺い、条件に近い求人を選定します。面接日程の調整や赴任準備も、一人で抱え込む必要はありません。</p>
+            <ul class="check-list">
+              <li>履歴書がなくても、まず相談可能</li>
+              <li>仕事と住まいを同時に相談</li>
+              <li>就業開始後も継続フォロー</li>
+            </ul>
+          </div>
+          <div class="summary-card">
+            <span>相談から仕事開始まで</span>
+            <strong>専任スタッフが<br>伴走サポート</strong>
+            <a class="text-link js-line-link" href="#contact">無料相談を始める →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="promise">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-label">3 PROMISES</span>
+          <h2>すぐワーク 3つの約束</h2>
+          <p>働き始めるまでの不安を減らし、必要な手続きを迅速に進めます。</p>
+        </div>
+        <div class="promise-grid">
+          <article class="promise-card reveal">
+            <span class="number">01</span><div class="promise-icon">返</div>
+            <h3>すぐに返事をする</h3>
+            <p>ご相談内容を確認し、担当者から速やかにご連絡します。</p>
+          </article>
+          <article class="promise-card reveal" data-delay="100">
+            <span class="number">02</span><div class="promise-icon">職</div>
+            <h3>すぐに仕事を探す</h3>
+            <p>条件を整理し、募集中の求人から優先順位を付けてご提案します。</p>
+          </article>
+          <article class="promise-card reveal" data-delay="200">
+            <span class="number">03</span><div class="promise-icon">寮</div>
+            <h3>すぐに入寮を進める</h3>
+            <p>入寮可能日や赴任方法を確認し、必要な準備をサポートします。</p>
+          </article>
+        </div>
+        <div class="notice-box reveal">
+          <strong>安心してご相談いただくために</strong>
+          <p>求人条件・支援内容・入寮可能日は、案件、選考結果、適用条件により異なります。内容を確認した上でご案内します。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section trouble-section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-label">SUPPORT</span>
+          <h2>その悩み、まとめて相談できます</h2>
+          <p>仕事探しだけでなく、就業までに必要な生活面も含めて整理します。</p>
+        </div>
+        <div class="trouble-grid">
+          <article class="trouble-card reveal"><div class="trouble-visual"><img src="assets/images/job-machine.webp" alt="機械オペレーターとして働く日本人男性"></div><div><span>01</span><h3>すぐに働きたい</h3><p>面接枠や入社時期が早い求人を優先してご案内します。</p></div></article>
+          <article class="trouble-card reveal"><div class="trouble-visual"><img src="assets/images/cash-support.webp" alt="生活費のイメージ"></div><div><span>02</span><h3>手持ちのお金が少ない</h3><p>日払い・週払い、生活支援制度のある案件を確認します。</p></div></article>
+          <article class="trouble-card reveal"><div class="trouble-visual"><img src="assets/images/dorm-room.webp" alt="家具家電付きの寮のイメージ"></div><div><span>03</span><h3>住む場所がない</h3><p>寮付き・初期費用を抑えられる求人を中心に探します。</p></div></article>
+          <article class="trouble-card reveal"><div class="trouble-visual"><img src="assets/images/smartphone.webp" alt="スマートフォンの相談サポート"></div><div><span>04</span><h3>スマホや連絡手段が不安</h3><p>連絡手段の確保についても、可能な範囲でご相談いただけます。</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="nationwide section-dark-soft">
+      <div class="container nationwide-grid">
+        <div class="nationwide-copy reveal">
+          <span class="section-label is-light">NATIONWIDE</span>
+          <h2>全国の寮付き求人に対応</h2>
+          <p>製造・工場・物流を中心に、全国各地の求人をご案内します。現在地から離れた地域への赴任もご相談ください。</p>
+          <div class="area-tags"><span>北海道・東北</span><span>関東</span><span>東海</span><span>関西</span><span>中国・四国</span><span>九州</span></div>
+          <small>※募集状況により、ご案内できない都道府県・職種があります。</small>
+        </div>
+        <div class="map-card reveal" data-delay="120" aria-label="全国対応イメージ">
+          <svg viewBox="0 0 680 420" role="img" aria-label="日本全国の求人に対応するイメージ">
+            <defs><linearGradient id="mapG" x1="0" x2="1"><stop offset="0" stop-color="#87d56c"/><stop offset="1" stop-color="#12a85b"/></linearGradient></defs>
+            <path d="M535 65c-14 3-27 15-27 28 0 16 20 20 34 14 17-7 29-26 21-38-5-8-17-7-28-4zM472 117c-19 7-38 18-51 32-7 8-15 21-7 29 8 8 24 3 33-2 20-11 37-28 47-47 5-10-9-17-22-12zM394 183c-23 7-46 20-64 35-11 9-26 23-18 35 8 13 31 7 44 2 28-11 51-31 70-53 10-12-13-25-32-19zM305 253c-28 6-59 17-82 34-14 10-33 27-24 41 9 15 39 10 56 5 34-10 67-27 92-49 13-12-17-36-42-31zM179 322c-25 3-50 9-72 22-14 8-33 23-28 36 6 15 37 14 53 11 33-6 62-18 88-35 14-9-17-37-41-34z" fill="url(#mapG)" opacity=".95"/>
+            <circle cx="533" cy="89" r="10" fill="#ffb000"/><circle cx="445" cy="155" r="10" fill="#ffb000"/><circle cx="367" cy="222" r="10" fill="#ffb000"/><circle cx="278" cy="294" r="10" fill="#ffb000"/><circle cx="142" cy="357" r="10" fill="#ffb000"/>
+            <path d="M520 90C445 122 401 178 361 221S260 303 146 355" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-dasharray="12 14"/>
+          </svg>
+          <div><b>仕事も住まいも</b><strong>全国から相談OK</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="jobs">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-label">JOB INFORMATION</span>
+          <h2>ご紹介できる求人例</h2>
+          <p>寮付き・未経験OK・高収入など、希望条件に合わせてご提案します。</p>
+        </div>
+        <div class="job-slider-wrap reveal">
+          <button class="slider-button prev" type="button" aria-label="前の求人を見る">‹</button>
+          <div class="job-slider" data-slider>
+            <article class="job-card">
+              <div class="job-image"><img src="assets/images/job-manufacturing.webp" alt="自動車部品の製造スタッフ"></div>
+              <div class="job-content"><div class="job-tags"><span>寮付き</span><span>未経験OK</span></div><h3>自動車部品の製造</h3><dl><div><dt>月収例</dt><dd><strong>38万円</strong>以上</dd></div><div><dt>勤務地</dt><dd>東海エリア</dd></div><div><dt>勤務</dt><dd>2交替・土日休み</dd></div></dl></div>
+            </article>
+            <article class="job-card">
+              <div class="job-image"><img src="assets/images/job-inspection.webp" alt="電子部品の組立・検査スタッフ"></div>
+              <div class="job-content"><div class="job-tags"><span>女性活躍</span><span>研修あり</span></div><h3>電子部品の組立・検査</h3><dl><div><dt>月収例</dt><dd><strong>32万円</strong>以上</dd></div><div><dt>勤務地</dt><dd>九州エリア</dd></div><div><dt>勤務</dt><dd>日勤・土日休み</dd></div></dl></div>
+            </article>
+            <article class="job-card">
+              <div class="job-image"><img src="assets/images/job-machine.webp" alt="製造マシンオペレーター"></div>
+              <div class="job-content"><div class="job-tags"><span>寮費無料案件</span><span>高収入</span></div><h3>マシンオペレーター</h3><dl><div><dt>月収例</dt><dd><strong>36万円</strong>以上</dd></div><div><dt>勤務地</dt><dd>関東エリア</dd></div><div><dt>勤務</dt><dd>3交替・シフト制</dd></div></dl></div>
+            </article>
+            <article class="job-card">
+              <div class="job-image"><img src="assets/images/job-forklift.webp" alt="フォークリフト作業スタッフ"></div>
+              <div class="job-content"><div class="job-tags"><span>資格を活かす</span><span>赴任支援</span></div><h3>フォークリフト作業</h3><dl><div><dt>月収例</dt><dd><strong>34万円</strong>以上</dd></div><div><dt>勤務地</dt><dd>関西エリア</dd></div><div><dt>勤務</dt><dd>日勤・週休2日</dd></div></dl></div>
+            </article>
+          </div>
+          <button class="slider-button next" type="button" aria-label="次の求人を見る">›</button>
+        </div>
+        <p class="job-note">※掲載求人は一例です。給与・勤務地・勤務条件・支援制度は募集時期や配属先により異なります。</p>
+      </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+      <div class="container cta-box reveal">
+        <div class="cta-person"><img src="assets/images/support-staff.webp" alt="日本人の就職サポート担当スタッフ"></div>
+        <div class="cta-copy"><span>仕事も住まいも、まずは一度ご相談ください</span><h2>希望条件を伝えるだけで<br>求人探しをスタートできます</h2><p>無理に応募する必要はありません。現在の状況と希望を確認し、案内可能な求人をご説明します。</p></div>
+        <div class="cta-actions"><a class="button button-line button-large js-line-link" href="#contact"><span class="button-kicker">＼ 24時間受付 ／</span>LINEで無料相談</a><a class="button button-phone button-large" href="tel:0926003558"><span class="button-kicker">電話で相談</span>092-600-3558</a><small>受付時間 9:00〜20:00</small></div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="reasons">
+      <div class="container">
+        <div class="section-heading reveal"><span class="section-label">5 REASONS</span><h2>選ばれる5つの理由</h2><p>仕事が決まる前後まで、必要な支援を一つずつ整理します。</p></div>
+        <div class="reasons-list">
+          <article class="reason-card reveal"><div class="reason-number">01</div><div class="reason-image"><img src="assets/images/cash-support.webp" alt="生活支援のイメージ"></div><div class="reason-copy"><h3>生活面まで相談できる</h3><p>所持金や食事、移動費などの不安を伺い、対象となる支援制度や対応求人を確認します。</p></div></article>
+          <article class="reason-card reverse reveal"><div class="reason-number">02</div><div class="reason-image"><img src="assets/images/dorm-room.webp" alt="寮の室内イメージ"></div><div class="reason-copy"><h3>寮付き求人を優先して探せる</h3><p>入寮可能日、寮費、家具家電の有無などを確認し、生活開始までの見通しを立てます。</p></div></article>
+          <article class="reason-card reveal"><div class="reason-number">03</div><div class="reason-image"><img src="assets/images/support-staff.webp" alt="日本人の相談スタッフ"></div><div class="reason-copy"><h3>担当者が希望を丁寧にヒアリング</h3><p>勤務地・収入・勤務時間・職種など、譲れない条件を整理してミスマッチを減らします。</p></div></article>
+          <article class="reason-card reverse reveal"><div class="reason-number">04</div><div class="reason-image"><img src="assets/images/job-inspection.webp" alt="製造業で働く日本人女性"></div><div class="reason-copy"><h3>未経験から始めやすい求人が多数</h3><p>研修や手順書が整っている製造・工場系求人を中心に、経験が少ない方にもご案内します。</p></div></article>
+          <article class="reason-card reveal"><div class="reason-number">05</div><div class="reason-image"><img src="assets/images/travel-ticket.webp" alt="赴任交通費のイメージ"></div><div class="reason-copy"><h3>面接・入社・赴任まで一括サポート</h3><p>面接日程、必要書類、移動方法などを確認し、入社までの手続きをスムーズに進めます。</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section manga-section">
+      <div class="container narrow">
+        <div class="section-heading reveal"><span class="section-label">MANGA</span><h2>マンガで分かる相談サポート</h2><p>仕事と住まいに困ったとき、相談から新しいスタートまでの流れをご紹介します。</p></div>
+        <div class="manga-card reveal"><img src="assets/images/support-manga.webp" alt="はたらくナビすぐワークの仕事・住まい・生活支援を説明するマンガ"></div>
+        <p class="manga-note">※生活支援金の支給には対象条件・審査があります。詳細は担当者へご確認ください。</p>
+      </div>
+    </section>
+
+    <section class="section voice-section" id="voice">
+      <div class="container">
+        <div class="section-heading reveal"><span class="section-label">VOICE</span><h2>ご利用者の声</h2><p>同じような不安を抱えていた方の相談例です。</p></div>
+        <div class="voice-grid">
+          <article class="voice-card reveal"><div class="voice-meta"><span>20代 男性</span><b>前職：離職中</b></div><h3>仕事と寮を同時に探せました</h3><p>所持金が少なく、住まいも期限が迫っていました。条件を整理してもらい、寮付きの製造求人を紹介してもらえたので、準備を進めやすかったです。</p></article>
+          <article class="voice-card reveal" data-delay="100"><div class="voice-meta"><span>30代 男性</span><b>前職：アルバイト</b></div><h3>面接までの流れが分かりやすかった</h3><p>求人票だけでは分からない勤務条件や寮の内容を確認してもらえました。面接日程も調整してもらい、安心して進められました。</p></article>
+          <article class="voice-card reveal" data-delay="200"><div class="voice-meta"><span>20代 女性</span><b>前職：工場勤務</b></div><h3>希望に近い職場を比較できました</h3><p>日勤、寮付き、未経験でも始めやすい仕事を希望しました。複数の条件を比較しながら決められた点が良かったです。</p></article>
+        </div>
+        <p class="voice-note">※上記は相談事例をもとにしたイメージです。結果を保証するものではありません。</p>
+      </div>
+    </section>
+
+    <section class="section section-tint dorm-section">
+      <div class="container dorm-grid">
+        <div class="dorm-image reveal"><img src="assets/images/dorm-room.webp" alt="家具家電付きワンルーム寮のイメージ"><span>寮の一例</span></div>
+        <div class="dorm-copy reveal" data-delay="120"><span class="section-label">DORMITORY</span><h2>すぐに生活を始めやすい<br>寮付き求人をご案内</h2><p>家具家電付き、寮費無料、職場まで送迎ありなど、求人によって寮の条件はさまざまです。担当者が事前に確認します。</p><ul class="check-list"><li>初期費用を抑えられる案件</li><li>単身用ワンルーム案件</li><li>職場近く・送迎あり案件</li></ul><small>※写真はイメージです。実際の物件・設備は配属先により異なります。</small></div>
+      </div>
+    </section>
+
+    <section class="section" id="flow">
+      <div class="container">
+        <div class="section-heading reveal"><span class="section-label">FLOW</span><h2>ご入社までの流れ</h2><p>相談からお仕事開始まで、5つのステップで進みます。</p></div>
+        <ol class="flow-list">
+          <li class="flow-item reveal"><span class="flow-number">01</span><div class="flow-icon">LINE</div><div><h3>LINE・電話で相談</h3><p>現在の状況と希望条件をお知らせください。履歴書がなくても相談できます。</p></div></li>
+          <li class="flow-item reveal"><span class="flow-number">02</span><div class="flow-icon">提案</div><div><h3>条件に合う求人をご提案</h3><p>勤務地・収入・勤務時間・入寮時期などを確認し、求人を選定します。</p></div></li>
+          <li class="flow-item reveal"><span class="flow-number">03</span><div class="flow-icon">面接</div><div><h3>面接・選考をサポート</h3><p>日程調整や面接準備を行い、応募先との選考を進めます。</p></div></li>
+          <li class="flow-item reveal"><span class="flow-number">04</span><div class="flow-icon">赴任</div><div><h3>入寮・赴任準備</h3><p>移動方法、必要な持ち物、入寮日などを確認します。</p></div></li>
+          <li class="flow-item reveal"><span class="flow-number">05</span><div class="flow-icon">勤務</div><div><h3>お仕事スタート</h3><p>勤務開始後も、困りごとがあれば担当者へご相談いただけます。</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section faq-section" id="faq">
+      <div class="container faq-grid">
+        <div class="faq-intro reveal"><span class="section-label">FAQ</span><h2>よくあるご質問</h2><p>はたらくナビすぐワークの日本人サポートスタッフがお答えします。</p><div class="faq-person"><img src="assets/images/support-staff.webp" alt="日本人の就職サポートスタッフ"><span>就職サポート担当</span></div></div>
+        <div class="faq-list">
+          <details class="faq-item reveal" open><summary><span>Q</span>「即入寮」とは、本当にすぐ入れますか？</summary><div><span>A</span><p>求人・物件の空き状況、選考結果、必要書類の確認後に決まります。最短で早くご案内できる案件もありますが、必ず当日・翌日を保証するものではありません。</p></div></details>
+          <details class="faq-item reveal"><summary><span>Q</span>所持金が少なくても相談できますか？</summary><div><span>A</span><p>相談可能です。生活支援、日払い・週払い、赴任交通費支給などの制度がある求人を確認します。支援には条件・審査があります。</p></div></details>
+          <details class="faq-item reveal"><summary><span>Q</span>未経験でも応募できますか？</summary><div><span>A</span><p>未経験歓迎の製造・工場求人を多数取り扱っています。仕事内容や研修内容を確認し、始めやすい求人をご案内します。</p></div></details>
+          <details class="faq-item reveal"><summary><span>Q</span>働く地域や条件は選べますか？</summary><div><span>A</span><p>ご希望を伺った上で求人をお探しします。ただし募集状況によっては、すべての条件を満たせない場合があります。</p></div></details>
+          <details class="faq-item reveal"><summary><span>Q</span>相談したら必ず応募しないといけませんか？</summary><div><span>A</span><p>応募は任意です。求人条件を確認してから判断できます。合わない場合は、別の条件で探し直すことも可能です。</p></div></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta section-dark">
+      <div class="container final-cta-inner reveal"><p>仕事と住まいの不安を、ひとりで抱え込まないでください。</p><h2>新しいスタートを<br>はたらくナビすぐワークが支えます</h2><div class="final-actions"><a class="button button-line button-large js-line-link" href="#contact"><span class="button-kicker">＼ 30秒で相談開始 ／</span>LINEで無料相談</a><a class="button button-phone button-large" href="tel:0926003558"><span class="button-kicker">受付時間 9:00〜20:00</span>092-600-3558</a></div></div>
+    </section>
   </main>
 
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand"><img src="assets/images/logo.webp" alt="はたらくナビすぐワーク"><div><strong>はたらくナビすぐワーク</strong><span>仕事探しをもっと早く、もっと安心に</span></div></div>
+      <div class="company-info"><dl><div><dt>サービス名</dt><dd>はたらくナビすぐワーク</dd></div><div><dt>所在地</dt><dd>福岡県福岡市中央区天神4丁目9-10<br>第二正友ビル4階</dd></div><div><dt>電話番号</dt><dd><a href="tel:0926003558">092-600-3558</a></dd></div></dl></div>
+      <div class="footer-links"><a href="#about">サービスについて</a><a href="#jobs">求人例</a><a href="#flow">ご利用の流れ</a><a href="#faq">よくある質問</a><a href="privacy.html">プライバシーポリシー</a></div>
+    </div>
+    <div class="footer-notes container"><p>※求人情報、給与、支援内容、入寮時期は案件・時期・選考状況・適用条件により異なります。</p><p>© 2026 はたらくナビすぐワーク</p></div>
+  </footer>
+
   <div class="fixed-cta" aria-label="固定相談ボタン">
-    <a class="fixed-cta__phone" href="tel:0926003558">電話で相談<br>092-600-3558</a>
-    <a class="fixed-cta__line" href="#">LINEで無料相談</a>
+    <a class="fixed-phone" href="tel:0926003558"><small>電話で相談</small><strong>092-600-3558</strong></a>
+    <a class="fixed-line js-line-link" href="#contact"><small>＼ 30秒で応募完了 ／</small><strong>LINEで無料相談</strong></a>
   </div>
+
+  <dialog class="line-dialog" id="line-dialog">
+    <button class="dialog-close" type="button" aria-label="閉じる">×</button>
+    <img src="assets/images/logo.webp" alt="" width="88" height="88">
+    <h2>LINE公式URLの設定が必要です</h2>
+    <p>納品データ内の <code>assets/js/config.js</code> に公式LINEのURLを入力すると、すべてのLINEボタンが自動で有効になります。</p>
+    <a class="button button-phone" href="tel:0926003558">電話で相談する</a>
+  </dialog>
 </body>
 </html>
