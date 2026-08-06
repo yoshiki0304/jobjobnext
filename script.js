@@ -6,14 +6,23 @@
 
   const closePopup = () => {
     if (!popup) return;
+    popup.classList.add("is-hidden");
+    popup.setAttribute("aria-hidden", "true");
     popup.hidden = true;
     dismissed = true;
   };
 
+  const openPopup = () => {
+    if (!popup || dismissed) return;
+    popup.hidden = false;
+    popup.classList.remove("is-hidden");
+    popup.setAttribute("aria-hidden", "false");
+  };
+
   const checkScroll = () => {
-    if (!popup || dismissed || !popup.hidden) return;
+    if (!popup || dismissed || !popup.classList.contains("is-hidden")) return;
     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-    if (scrollable > 0 && window.scrollY / scrollable >= 0.7) popup.hidden = false;
+    if (scrollable > 0 && window.scrollY / scrollable >= 0.7) openPopup();
   };
 
   window.addEventListener("scroll", checkScroll, { passive: true });
@@ -23,7 +32,6 @@
   });
   panel?.addEventListener("click", (event) => event.stopPropagation());
   window.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && popup && !popup.hidden) closePopup();
+    if (event.key === "Escape" && popup && !popup.classList.contains("is-hidden")) closePopup();
   });
-  checkScroll();
 })();
