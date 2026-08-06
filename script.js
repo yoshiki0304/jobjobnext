@@ -22,7 +22,7 @@
   const checkScroll = () => {
     if (!popup || dismissed || !popup.classList.contains("is-hidden")) return;
     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-    if (scrollable > 0 && window.scrollY / scrollable >= 0.7) openPopup();
+    if (scrollable > 0 && window.scrollY / scrollable >= 0.6) openPopup();
   };
 
   window.addEventListener("scroll", checkScroll, { passive: true });
