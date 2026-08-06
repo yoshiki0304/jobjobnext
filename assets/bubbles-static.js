@@ -10,7 +10,17 @@ if (host && !reducedMotion) {
   if (!hasWebGL) {
     host.classList.add("isFallback");
   } else {
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "low-power" });
+    let renderer;
+    try {
+      renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "low-power" });
+    } catch {
+      host.classList.add("isFallback");
+    }
+
+    if (!renderer) {
+      host.classList.add("isFallback");
+    } else {
+    host.classList.remove("isFallback");
     renderer.setClearColor(0x000000, 0);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -33,6 +43,8 @@ if (host && !reducedMotion) {
     let previous = 0;
     let time = 0;
     let lastPointerCheck = 0;
+    let lastScrollY = window.scrollY;
+    let scrollImpulse = 0;
 
     const vertexShader = `
       varying vec3 vNormal;
@@ -71,9 +83,15 @@ if (host && !reducedMotion) {
     const resetBubble = (bubble, initial = false) => {
       const area = getBounds();
       const scale = THREE.MathUtils.randFloat(compact ? 0.32 : 0.4, compact ? 0.78 : 1.08);
+      const centerHalfWidth = Math.min((260 / window.innerWidth) * area.width, area.width * 0.38);
+      const side = Math.random() < 0.5 ? -1 : 1;
+      const sidePosition = THREE.MathUtils.randFloat(
+        centerHalfWidth + scale * 0.75,
+        Math.max(centerHalfWidth + scale, area.width * 0.54),
+      );
       bubble.scale.setScalar(scale);
       bubble.position.set(
-        THREE.MathUtils.randFloat(-area.width * 0.54, area.width * 0.54),
+        side * sidePosition,
         initial ? THREE.MathUtils.randFloat(-area.height * 0.56, area.height * 0.56) : -area.height * 0.6 - scale,
         THREE.MathUtils.randFloat(-1.7, 1.1),
       );
@@ -142,6 +160,13 @@ if (host && !reducedMotion) {
       if (hit) burstBubble(hit.object);
     };
 
+    const updateScroll = () => {
+      const nextScrollY = window.scrollY;
+      const scrollDelta = nextScrollY - lastScrollY;
+      lastScrollY = nextScrollY;
+      scrollImpulse = THREE.MathUtils.clamp(scrollImpulse + scrollDelta * 0.0045, -0.82, 0.82);
+    };
+
     const animate = (now) => {
       frame = requestAnimationFrame(animate);
       if (document.hidden || now - previous < 1000 / fps) return;
@@ -149,15 +174,25 @@ if (host && !reducedMotion) {
       previous = now;
       time += 0.016667 * delta;
       const area = getBounds();
+      const scrollShift = scrollImpulse * delta;
+      scrollImpulse *= Math.pow(0.8, delta);
       bubbles.forEach((bubble) => {
         if (!bubble.visible) return;
         bubble.position.addScaledVector(bubble.userData.velocity, delta);
+        bubble.position.y += scrollShift;
         bubble.position.x += Math.sin(time * 0.65 + bubble.userData.phase) * bubble.userData.wobble * delta;
+        bubble.rotation.y += 0.0018 * delta;
         bubble.material.uniforms.uTime.value = time;
         if (bubble.position.y > area.height * 0.62 + bubble.scale.y) resetBubble(bubble);
+        if (bubble.position.y < -area.height * 0.68 - bubble.scale.y) {
+          bubble.position.y = area.height * 0.62 + bubble.scale.y;
+        }
+        if (bubble.position.x > area.width * 0.62) bubble.position.x = -area.width * 0.62;
+        if (bubble.position.x < -area.width * 0.62) bubble.position.x = area.width * 0.62;
       });
       for (let burstIndex = bursts.length - 1; burstIndex >= 0; burstIndex -= 1) {
         const burst = bursts[burstIndex];
+        burst.position.y += scrollShift;
         const attribute = burst.geometry.getAttribute("position");
         const values = attribute.array;
         for (let index = 0; index < particleCount; index += 1) {
@@ -183,7 +218,9 @@ if (host && !reducedMotion) {
     window.addEventListener("resize", resize, { passive: true });
     window.addEventListener("pointermove", checkPointer, { passive: true });
     window.addEventListener("pointerdown", checkPointer, { passive: true });
+    window.addEventListener("scroll", updateScroll, { passive: true });
     frame = requestAnimationFrame(animate);
     window.addEventListener("pagehide", () => cancelAnimationFrame(frame), { once: true });
+    }
   }
 }
