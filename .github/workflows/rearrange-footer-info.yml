@@ -1,0 +1,60 @@
+name: Rearrange footer information
+
+on:
+  push:
+    paths:
+      - '.github/workflows/rearrange-footer-info.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-footer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Rearrange footer into two columns
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          html_path = Path('index.html')
+          html = html_path.read_text(encoding='utf-8')
+
+          old_footer = '''<footer><div class="brand footerBrand"><img class="brandLogo" src="./assets/brand-logo.png" alt="はたらくナビすぐワーク"/><span><small>仕事と住まいの相談窓口</small><strong>はたらくナビ <b>すぐワーク</b></strong></span></div><p><b>所在地</b><br/>〒810-0001<br/>福岡県福岡市中央区天神4丁目9-10<br/>第二正友ビル4階</p><p><b>電話番号</b><br/><a href="tel:0926003558">092-600-3558</a></p><p><b>運営会社</b><br/><a href="https://next-ji.jp/" target="_blank" rel="noopener noreferrer">株式会社Next Japan Innovation</a></p><p><b>許可番号</b><br/>40-ユ-301761</p><small>© はたらくナビすぐワーク All Rights Reserved.</small></footer>'''
+
+          new_footer = '''<footer><div class="brand footerBrand"><img class="brandLogo" src="./assets/brand-logo.png" alt="はたらくナビすぐワーク"/><span><small>仕事と住まいの相談窓口</small><strong>はたらくナビ <b>すぐワーク</b></strong></span></div><div class="footerInfo"><div class="footerColumn"><p><b>運営会社</b><br/><a class="footerCompanyLink" href="https://next-ji.jp/" target="_blank" rel="noopener noreferrer">株式会社Next Japan Innovation</a></p><p><b>電話番号</b><br/><a class="footerPhoneLink" href="tel:0926003558">092-600-3558</a></p></div><div class="footerColumn"><p><b>所在地</b><br/>〒810-0001<br/>福岡県福岡市中央区天神4丁目9-10<br/>第二正友ビル4階</p><p><b>許可番号</b><br/>40-ユ-301761</p></div></div><small>© はたらくナビすぐワーク All Rights Reserved.</small></footer>'''
+
+          if new_footer not in html:
+              if old_footer not in html:
+                  raise SystemExit('Expected footer markup was not found.')
+              html = html.replace(old_footer, new_footer, 1)
+              html_path.write_text(html, encoding='utf-8')
+
+          css_path = Path('style.css')
+          css = css_path.read_text(encoding='utf-8')
+          old_css = '''footer{padding:45px 27px 27px;background:#06243e;color:#fff}.footerBrand{margin-bottom:28px}.footerBrand .brandLogo{box-shadow:none}.footerBrand small{color:#8499ad}.footerBrand strong{color:#fff}.footerBrand strong b{color:#75b2ff}footer>p{font-size:8px;line-height:1.8;color:#9aabba;margin:13px 0}footer>p>b{font-size:8px;color:#75b2ff}footer>p a{font:900 16px Arial;color:#fff}footer>small:last-child{display:block;margin-top:28px;padding-top:17px;border-top:1px solid #ffffff1a;text-align:center;color:#5e7489;font-size:7px}.mobileFixed{display:none}'''
+          new_css = '''footer{padding:45px 27px 27px;background:#06243e;color:#fff}.footerBrand{margin-bottom:28px}.footerBrand .brandLogo{box-shadow:none}.footerBrand small{color:#8499ad}.footerBrand strong{color:#fff}.footerBrand strong b{color:#75b2ff}.footerInfo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 24px;align-items:start}.footerColumn{display:flex;flex-direction:column;gap:17px;min-width:0}.footerColumn>p{font-size:8px;line-height:1.8;color:#9aabba;margin:0;overflow-wrap:anywhere}.footerColumn>p>b{font-size:8px;color:#75b2ff}.footerCompanyLink{font-size:9px;font-weight:900;line-height:1.6;color:#fff;text-decoration:underline;text-underline-offset:3px}.footerPhoneLink{font:900 16px Arial;color:#fff}footer>small:last-child{display:block;margin-top:28px;padding-top:17px;border-top:1px solid #ffffff1a;text-align:center;color:#5e7489;font-size:7px}.mobileFixed{display:none}'''
+
+          if new_css not in css:
+              if old_css not in css:
+                  raise SystemExit('Expected footer CSS block was not found.')
+              css = css.replace(old_css, new_css, 1)
+              css_path.write_text(css, encoding='utf-8')
+          PY
+
+      - name: Commit update and remove temporary workflow
+        shell: bash
+        run: |
+          rm -f .github/workflows/rearrange-footer-info.yml
+          git config user.name "OpenAI"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html style.css .github/workflows/rearrange-footer-info.yml
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "Rearrange footer information into two columns"
+          git push
