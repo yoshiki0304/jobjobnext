@@ -1,0 +1,47 @@
+name: Link footer company name
+
+on:
+  push:
+    paths:
+      - '.github/workflows/link-footer-company.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-footer-link:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Link company name in footer
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('index.html')
+          html = path.read_text(encoding='utf-8')
+          old = '<p><b>運営会社</b><br/>株式会社Next Japan Innovation</p>'
+          new = '<p><b>運営会社</b><br/><a href="https://next-ji.jp/" target="_blank" rel="noopener noreferrer">株式会社Next Japan Innovation</a></p>'
+
+          if new not in html:
+              if old not in html:
+                  raise SystemExit('Expected company footer block was not found.')
+              html = html.replace(old, new, 1)
+              path.write_text(html, encoding='utf-8')
+          PY
+
+      - name: Commit update and remove temporary workflow
+        shell: bash
+        run: |
+          rm -f .github/workflows/link-footer-company.yml
+          git config user.name "OpenAI"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html .github/workflows/link-footer-company.yml
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "Link footer company name to corporate site"
+          git push
