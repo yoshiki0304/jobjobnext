@@ -1,0 +1,77 @@
+name: Rename brand and update SEO
+on:
+  push:
+    paths:
+      - '.github/workflows/rename-sumikomi-job.yml'
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Update brand and SEO
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          # index.html
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+
+          # Brand markup / text replacements
+          s = s.replace('<strong>はたらくナビ <b>すぐワーク</b></strong>', '<strong>住み込みJOB</strong>')
+          s = s.replace('はたらくナビ すぐワーク', '住み込みJOB')
+          s = s.replace('はたらくナビすぐワーク', '住み込みJOB')
+
+          # SEO title / description
+          import re
+          s = re.sub(r'<title>.*?</title>', '<title>住み込み求人・入社祝い金の仕事探し｜住み込みJOB</title>', s, count=1)
+          s = re.sub(
+              r'<meta name="description" content="[^"]*"/>',
+              '<meta name="description" content="住み込みの仕事探しなら住み込みJOB。入社祝い金あり、寮付き・未経験歓迎など全国の求人をご紹介。仕事探しから入寮・赴任まで無料でサポートします。"/>',
+              s,
+              count=1
+          )
+
+          # Add SEO/OG tags only if not already present
+          marker = '<meta name="description" content="住み込みの仕事探しなら住み込みJOB。入社祝い金あり、寮付き・未経験歓迎など全国の求人をご紹介。仕事探しから入寮・赴任まで無料でサポートします。"/>'
+          if 'name="keywords"' not in s:
+              seo_tags = (
+                  marker
+                  + '<meta name="keywords" content="住み込み,入社祝い金,住み込み求人,寮付き求人"/>'
+                  + '<link rel="canonical" href="https://sumikomi-job.jp/"/>'
+                  + '<meta property="og:type" content="website"/>'
+                  + '<meta property="og:url" content="https://sumikomi-job.jp/"/>'
+                  + '<meta property="og:title" content="住み込み求人・入社祝い金の仕事探し｜住み込みJOB"/>'
+                  + '<meta property="og:description" content="住み込みの仕事探しなら住み込みJOB。入社祝い金あり、寮付き・未経験歓迎など全国の求人をご紹介。"/>'
+              )
+              s = s.replace(marker, seo_tags, 1)
+
+          # Natural on-page keyword usage without changing layout structure
+          s = s.replace('<p>寮付き求人・生活サポート</p>', '<p>住み込み求人・入社祝い金ありのお仕事紹介</p>', 1)
+
+          p.write_text(s, encoding='utf-8')
+
+          # privacy.html / thanks.html
+          for name in ['privacy.html', 'thanks.html']:
+              q = Path(name)
+              if not q.exists():
+                  continue
+              t = q.read_text(encoding='utf-8')
+              t = t.replace('<span><b>はたらくナビ</b><strong>すぐワーク</strong></span>', '<span><strong>住み込みJOB</strong></span>')
+              t = t.replace('はたらくナビ すぐワーク', '住み込みJOB')
+              t = t.replace('はたらくナビすぐワーク', '住み込みJOB')
+              q.write_text(t, encoding='utf-8')
+          PY
+      - name: Commit changes and remove temporary workflow
+        run: |
+          git config user.name "OpenAI"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html privacy.html thanks.html
+          git commit -m "Rename LP to 住み込みJOB and optimize SEO"
+          git rm .github/workflows/rename-sumikomi-job.yml
+          git commit -m "Remove temporary rename workflow"
+          git push origin main
