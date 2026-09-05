@@ -1,4 +1,5 @@
 (() => {
+  if (window.matchMedia("(max-width: 980px)").matches) return;
   const host = document.querySelector(".bubbleBackground");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
